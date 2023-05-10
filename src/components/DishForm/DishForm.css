@@ -1,0 +1,68 @@
+.myForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    background-color: white;
+    width: 300px;
+    padding: 30px;
+    border-radius: 30px;
+  }
+  
+  .fieldContainer {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .label {
+    margin-bottom: 10px;
+  }
+  
+  .input, .select {
+    padding: 5px;
+    width: 200px;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #e64d00;
+  }
+
+  .select{
+    width: 220px;
+  }
+  
+  .additionalFieldsContainer {
+    margin-top: 10px;
+  }
+  .submitButton {
+    padding: 10px 20px;
+    background-color: #e64d00;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submitButton:hover {
+    background-color: #ffb300;
+
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .submitButton:focus {
+    outline: none;
+    animation: pulse 0.5s;
+  }
