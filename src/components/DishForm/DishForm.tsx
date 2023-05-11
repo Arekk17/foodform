@@ -37,7 +37,7 @@ const DishForm: React.FC<InjectedFormProps<FormData>> = (props) => {
         dispatch(reset('DishForm'));
       })
       .catch(error => {
-        console.log(error);
+        console.error(error);
       });
   };
 
@@ -86,7 +86,7 @@ const DishForm: React.FC<InjectedFormProps<FormData>> = (props) => {
       <Field className="input" name="name" component="input" type="text" required />
     </div>
     <div className="fieldContainer">
-      <label className="label" htmlFor="preparation_time">Preparation Time (HH:MM:SS):</label>
+      <label className="label" htmlFor="preparation_time">Preparation Time:</label>
       <Field className="input" name="preparation_time" component="input" type="time" step='1' required />
     </div>
     <div className="fieldContainer">
