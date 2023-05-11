@@ -1,4 +1,7 @@
 body {
   background: radial-gradient(circle, rgba(245,108,104,1) 0%, rgba(247,132,16,1) 100%);
   font-family: 'Times New Roman', Times, serif;
+  box-sizing: border-box;
+  margin-left: 0;
+  margin-right: 0;
 }
