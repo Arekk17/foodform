@@ -8,11 +8,6 @@
   padding: 30px;
   border-radius: 30px;
   box-shadow: 4px 7px 63px -14px rgba(122, 122, 122, 1);
-  transition: box-shadow 0.3s ease;
-}
-
-.myForm:hover {
-  box-shadow: 4px 7px 63px -14px rgba(122, 122, 122, 0.8);
 }
 
 .fieldContainer {
