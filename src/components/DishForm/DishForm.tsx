@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import { Field, reduxForm, InjectedFormProps, reset, formValueSelector } from 'redux-form';
 import { useDispatch, useSelector } from 'react-redux';
 import './DishForm.css';
@@ -11,6 +11,13 @@ interface FormData {
   diameter?: number;
   spiciness_scale?: number;
   slices_of_bread?: number;
+}
+
+interface RenderSliderProps {
+  input: {
+    value: number;
+    onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  };
 }
 
 const DishForm: React.FC<InjectedFormProps<FormData>> = (props) => {
@@ -44,7 +51,22 @@ const DishForm: React.FC<InjectedFormProps<FormData>> = (props) => {
   const dishType = useSelector((state: any) =>
     formValueSelector<FormData>('DishForm')(state, 'type')
   );
-  
+
+  const RenderSlider: React.FC<RenderSliderProps> = ({ input }) => (
+    <div className='sliderContainer'>
+         <input
+          {...input}
+          type="range"
+          min="0"
+          max="50"
+          step="0.1"
+          className="slider"
+          value={input.value || 0}
+      />
+      <span className="sliderValue">{input.value}</span>
+    </div>
+  );
+
   const renderAdditionalFields = () => {
     if (dishType) {
       if (dishType === 'pizza') {
@@ -56,7 +78,10 @@ const DishForm: React.FC<InjectedFormProps<FormData>> = (props) => {
             </div>
             <div className="fieldContainer">
               <label htmlFor="diameter" className="label">Diameter:</label>
-              <Field name="diameter" component="input" className="input" type="number" step="0.01" required />
+              <div className="rangeContainer">
+                <Field name="diameter" component={RenderSlider} />
+                <Field name="selected_diameter" component="input" className="input" type="text" readOnly />
+              </div>
             </div>
           </>
         );
